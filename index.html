@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohamed Droussi | Portfolio R&T & Cyber</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'net-dark': '#0f172a',
+                        'net-panel': '#1e293b',
+                        'net-border': '#334155',
+                        'net-accent': '#0ea5e9', // Sky blue
+                        'net-glow': '#38bdf8',
+                        'status-ok': '#22c55e',
+                        'status-warn': '#eab308'
+                    },
+                    fontFamily: {
+                        'mono': ['"JetBrains Mono"', 'monospace'],
+                        'sans': ['"Inter"', 'sans-serif']
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'scanline': 'scanline 8s linear infinite',
+                    },
+                    keyframes: {
+                        scanline: {
+                            '0%': { transform: 'translateY(-100%)' },
+                            '100%': { transform: 'translateY(100%)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #0b1121;
+            background-image: 
+                linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)),
+                url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231e293b' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        .glass-panel {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(51, 65, 85, 0.5);
+        }
+        .net-grid-bg {
+            background-size: 50px 50px;
+            background-image: linear-gradient(to right, rgba(56, 189, 248, 0.05) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(56, 189, 248, 0.05) 1px, transparent 1px);
+        }
+        
+        /* Styles pour la photo de profil avec effet de zoom */
+        .profile-hex {
+            width: 120px;
+            height: 120px;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            background: #1e293b;
+            padding: 2px;
+            margin: 0 auto;
+            /* Transition fluide pour l'effet de zoom */
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            position: relative;
+            z-index: 10;
+        }
+        
+        /* Effet au survol : Zoom et premier plan */
+        .profile-hex:hover {
+            transform: scale(2.5); /* Agrandissement x2.5 */
+            z-index: 50; /* Passe au-dessus de tout le reste */
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            background-color: #334155;
+        }
+        
+        /* Bouton Retour en haut */
+        #backToTop {
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease-in-out;
+        }
+        #backToTop.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+    </style>
+</head>
+<body class="text-slate-300 font-sans antialiased selection:bg-net-accent selection:text-white overflow-x-hidden">
+
+    <!-- Navigation / Top Bar (Sticky Menu - Consigne SAE25) -->
+    <nav class="fixed w-full z-50 bg-net-dark/95 backdrop-blur border-b border-net-border shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo / Identité -->
+                <div class="flex items-center gap-3">
+                    <div class="w-3 h-3 rounded-full bg-status-ok animate-pulse shadow-[0_0_10px_rgba(34,197,94,0.5)]"></div>
+                    <span class="font-mono text-xl font-bold text-white tracking-tighter">DROUSSI<span class="text-net-accent">.NET</span></span>
+                </div>
+                <!-- Menu Principal (Max 6 éléments - Consigne SAE25) -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-center space-x-8 font-mono text-sm">
+                        <a href="#about" class="hover:text-net-accent transition-colors">::PROFIL</a>
+                        <a href="#skills" class="hover:text-net-accent transition-colors">::COMPÉTENCES</a>
+                        <a href="#projects" class="hover:text-net-accent transition-colors">::PROJETS</a>
+                        <a href="#timeline" class="hover:text-net-accent transition-colors">::PARCOURS</a>
+                        <a href="#contact" class="px-4 py-1 border border-net-accent text-net-accent hover:bg-net-accent hover:text-white transition-all rounded">CONTACT</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="about" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 net-grid-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                
+                <!-- Left: Intro -->
+                <div>
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-net-accent/10 border border-net-accent/30 text-net-accent text-xs font-mono mb-6">
+                        <i class="fas fa-terminal text-[10px]"></i>
+                        <span>BUT R&T – IUT SOPHIA ANTIPOLIS</span>
+                    </div>
+                    <h1 class="text-5xl lg:text-7xl font-bold text-white mb-6 tracking-tight">
+                        Mohamed <br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-net-accent to-blue-600">Droussi</span>
+                    </h1>
+                    <p class="text-xl text-slate-400 mb-8 max-w-lg leading-relaxed">
+                        Passionné par les <span class="text-white font-mono bg-slate-800 px-1 rounded">Architectures Réseaux</span> et la Cybersécurité.
+                        Je conçois, administre et sécurise les systèmes de communication de demain.
+                        En recherche de stage du <span class="text-net-accent font-mono">7 avril au 5 juin</span>.
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#contact" class="flex items-center gap-2 bg-net-accent hover:bg-blue-600 text-white px-6 py-3 rounded font-medium transition-all shadow-[0_0_20px_rgba(14,165,233,0.3)]">
+                            <i class="fas fa-paper-plane"></i> Me Contacter
+                        </a>
+                        <!-- BOUTON CV -->
+                        <a href="cv/Mohamed_Droussi_CV.pdf" target="_blank" class="flex items-center gap-2 bg-net-panel border border-net-border hover:border-net-accent hover:text-white text-net-accent px-6 py-3 rounded font-medium transition-all">
+                            <i class="fas fa-file-pdf"></i> Mon CV
+                        </a>
+                        <a href="https://github.com/mohaesh" target="_blank" class="flex items-center gap-2 bg-net-panel border border-net-border hover:border-white text-white px-6 py-3 rounded font-medium transition-all">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                        <a href="https://linkedin.com/in/mohamed-droussi" target="_blank" class="flex items-center gap-2 bg-net-panel border border-net-border hover:border-blue-400 text-blue-400 px-6 py-3 rounded font-medium transition-all">
+                            <i class="fab fa-linkedin"></i> LinkedIn
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right: ID Card / Dashboard -->
+                <div class="glass-panel rounded-xl p-1 border-t-4 border-t-net-accent relative group">
+                    <div class="absolute -top-2 -right-2 w-4 h-4 border-t-2 border-r-2 border-net-accent"></div>
+                    <div class="absolute -bottom-2 -left-2 w-4 h-4 border-b-2 border-l-2 border-net-accent"></div>
+                    
+                    <div class="bg-net-dark/80 p-6 rounded-lg">
+                        
+                        <!-- PHOTO -->
+                        <div class="flex justify-center mb-6 relative z-20">
+                            <div class="absolute inset-0 bg-net-accent/20 blur-xl rounded-full transform scale-75"></div>
+                            <div class="profile-hex bg-gradient-to-b from-net-accent to-blue-600 shadow-lg" title="Zoomer la photo">
+                                <!-- Placez votre photo dans le dossier 'images' et nommez-la 'profile.jpg' -->
+                                <img src="images/profile.jpg" onerror="this.src='https://ui-avatars.com/api/?name=Mohamed+Droussi&background=0f172a&color=0ea5e9&size=128'" alt="Mohamed Droussi" class="profile-img">
+                            </div>
+                        </div>
+
+                        <div class="flex justify-between items-center mb-6 border-b border-net-border pb-4">
+                            <span class="font-mono text-xs text-slate-500">ID: USER_MD_01</span>
+                            <div class="flex gap-2">
+                                <span class="w-2 h-2 rounded-full bg-red-500"></span>
+                                <span class="w-2 h-2 rounded-full bg-yellow-500"></span>
+                                <span class="w-2 h-2 rounded-full bg-green-500"></span>
+                            </div>
+                        </div>
+
+                        <div class="space-y-4 font-mono text-sm">
+                            <div class="flex justify-between">
+                                <span class="text-slate-500">Localisation:</span>
+                                <span class="text-white text-right">Nice / Sophia Antipolis</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-slate-500">Statut:</span>
+                                <span class="text-status-ok">● Étudiant BUT R&T</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-slate-500">Spécialité:</span>
+                                <span class="text-white text-right">Cisco, Linux, Python</span>
+                            </div>
+                            
+                            <div class="mt-6 pt-4 border-t border-net-border">
+                                <p class="text-xs text-slate-500 mb-2">TARGET_OBJECTIVE</p>
+                                <div class="bg-slate-800 rounded p-3 text-cyan-400">
+                                    > Recherche stage Administration reseaux (7 avril - 5 juin).
+                                    <span class="animate-pulse">_</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Skills Dashboard -->
+    <section id="skills" class="py-20 bg-net-dark relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center gap-4 mb-12">
+                <div class="h-px bg-net-border flex-1"></div>
+                <h2 class="text-3xl font-bold text-white font-mono"><i class="fas fa-network-wired text-net-accent mr-2"></i>COMPÉTENCES_TECHNIQUES</h2>
+                <div class="h-px bg-net-border flex-1"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Skill Card 1 -->
+                <div class="glass-panel p-6 rounded hover:border-net-accent transition-colors group">
+                    <div class="flex items-center justify-between mb-4">
+                        <i class="fas fa-server text-3xl text-slate-400 group-hover:text-white transition-colors"></i>
+                        <span class="text-xs font-mono text-net-accent border border-net-accent/30 px-2 py-1 rounded">NET_ADMIN</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Réseaux</h3>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-status-ok text-xs"></i> Architecture Cisco (VLAN, STP)</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-status-ok text-xs"></i> TCP/IP, DNS, DHCP</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-status-ok text-xs"></i> Wireshark & Analyse</li>
+                    </ul>
+                </div>
+
+                <!-- Skill Card 2 -->
+                <div class="glass-panel p-6 rounded hover:border-net-accent transition-colors group">
+                    <div class="flex items-center justify-between mb-4">
+                        <i class="fas fa-shield-alt text-3xl text-slate-400 group-hover:text-white transition-colors"></i>
+                        <span class="text-xs font-mono text-net-accent border border-net-accent/30 px-2 py-1 rounded">SEC_OPS</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Sécurité</h3>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li class="flex items-center gap-2"><i class="fas fa-terminal text-net-accent text-xs"></i> Linux & Windows Admin</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-terminal text-net-accent text-xs"></i> Cisco ASA & DMZ</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-terminal text-net-accent text-xs"></i> Droits & ACLs</li>
+                    </ul>
+                </div>
+
+                <!-- Skill Card 3 -->
+                <div class="glass-panel p-6 rounded hover:border-net-accent transition-colors group">
+                    <div class="flex items-center justify-between mb-4">
+                        <i class="fas fa-code text-3xl text-slate-400 group-hover:text-white transition-colors"></i>
+                        <span class="text-xs font-mono text-net-accent border border-net-accent/30 px-2 py-1 rounded">DEV_OPS</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Dev</h3>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li class="flex items-center gap-2"><i class="fas fa-code-branch text-status-warn text-xs"></i> Python, C, C++</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-code-branch text-status-warn text-xs"></i> Web (HTML, CSS, PHP)</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-code-branch text-status-warn text-xs"></i> Scripting Bash</li>
+                    </ul>
+                </div>
+
+                <!-- Skill Card 4: CERTIFICATIONS (Nouveau) -->
+                <div class="glass-panel p-6 rounded hover:border-net-accent transition-colors group border-l-4 border-l-status-warn">
+                    <div class="flex items-center justify-between mb-4">
+                        <i class="fas fa-certificate text-3xl text-status-warn group-hover:text-white transition-colors"></i>
+                        <span class="text-xs font-mono text-status-warn border border-status-warn/30 px-2 py-1 rounded">CERTIFS</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Certifications</h3>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <!-- Modifiez ces lignes avec vos vraies certifications -->
+                        <li class="flex items-center gap-2"><i class="fas fa-medal text-status-warn text-xs"></i> Cisco Certified Network Associate 1 & 2 (Formation)</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-medal text-status-warn text-xs"></i> PIX (Compétences Num.)</li>
+                        <!-- <li class="flex items-center gap-2"><i class="fas fa-medal text-status-warn text-xs"></i> TOEIC (En cours)</li> -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 net-grid-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-white font-mono mb-12 flex items-center justify-center gap-3">
+                <i class="fas fa-project-diagram text-net-accent"></i> PROJETS_ACADÉMIQUES (SAÉ)
+            </h2>
+            
+            <p class="text-slate-400 mb-12 max-w-3xl leading-relaxed mx-auto text-center">
+                Voici une sélection de mes projets majeurs (SAÉ) illustrant ma montée en compétences techniques. 
+                De la conception d'architectures sécurisées à l'IoT, en passant par l'analyse de signaux, ces réalisations 
+                témoignent de ma capacité à analyser, construire et documenter des solutions réseaux robustes en conditions réelles.
+            </p>
+            <!-- Grid avec preuve de compétences (Détails techniques ajoutés) -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                
+                <!-- Project 1: SAE 12 (PHYSIQUE) -->
+                <div class="glass-panel rounded-xl overflow-hidden border border-net-border hover:border-net-accent transition-all group flex flex-col h-full">
+                    <div class="bg-slate-800/50 p-4 border-b border-net-border flex justify-between items-center">
+                        <span class="font-mono text-net-accent text-sm">SAE 12 :: CARACTÉRISATION</span>
+                        <div class="flex gap-2 text-xs">
+                            <span class="bg-green-900 text-green-200 px-2 py-0.5 rounded">Tektronix</span>
+                            <span class="bg-green-900 text-green-200 px-2 py-0.5 rounded">Physique</span>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold text-white mb-3">Mesure Physique des Supports</h3>
+                        <p class="text-slate-400 text-sm mb-4">
+                            Étude expérimentale des supports de transmission coaxiaux et optiques.
+                        </p>
+                        <div class="bg-net-dark rounded border border-net-border p-3 font-mono text-xs text-green-400 overflow-hidden">
+                            <div class="opacity-70">
+                                > mesure atténuation câble coaxial [Tektronix]<br>
+                                > analyse réflectométrie TDR<br>
+                                > calcul impédance caractéristique<br>
+                                > status: VALIDATED<br>
+                                <span class="animate-pulse">_</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4 border-t border-slate-700/50 bg-net-dark/50 flex gap-3">
+                        <a href="rapports/SAE_12_DROUSSI_MOHAMED.pdf" target="_blank" class="flex-1 inline-flex items-center justify-center gap-2 bg-net-panel hover:bg-net-accent border border-net-border text-white py-2 rounded transition-colors text-sm font-mono group-hover:border-white">
+                            <i class="fas fa-file-pdf"></i> Voir Rapport
+                        </a>
+                        <a href="sujets_SAE/Enonce-SAE12-2024.pdf" target="_blank" class="flex-1 inline-flex items-center justify-center gap-2 border border-net-accent text-net-accent hover:bg-net-accent/10 py-2 rounded transition-colors text-sm font-mono">
+                            <i class="fas fa-clipboard-list"></i> Voir Sujet
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 2: SAE 13 (RÉSEAU) -->
+                <div class="glass-panel rounded-xl overflow-hidden border border-net-border hover:border-net-accent transition-all group flex flex-col h-full">
+                    <div class="bg-slate-800/50 p-4 border-b border-net-border flex justify-between items-center">
+                        <span class="font-mono text-net-accent text-sm">SAE 13 :: ANALYSE RÉSEAUX</span>
+                        <div class="flex gap-2 text-xs">
+                            <span class="bg-green-900 text-green-200 px-2 py-0.5 rounded">Wireshark</span>
+                            <span class="bg-green-900 text-green-200 px-2 py-0.5 rounded">IPv6</span>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold text-white mb-3">Analyse Logique des Réseaux Locaux</h3>
+                        <p class="text-slate-400 text-sm mb-4">
+                            Capture et analyse approfondie du trafic réseau IPv6 et protocoles OSI.
+                        </p>
+                        <div class="bg-net-dark rounded border border-net-border p-3 font-mono text-xs text-green-400 overflow-hidden">
+                            <div class="opacity-70">
+                                > analyse trames IPv6 [Wireshark]<br>
+                                > audit consommation CPU/Énergie<br>
+                                > dissection protocoles couches 2-4<br>
+                                > status: VALIDATED<br>
+                                <span class="animate-pulse">_</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4 border-t border-slate-700/50 bg-net-dark/50 flex gap-3">
+                        <a href="rapports/Droussi_MH-SAE13-Rapport.pdf" target="_blank" class="flex-1 inline-flex items-center justify-center gap-2 bg-net-panel hover:bg-net-accent border border-net-border text-white py-2 rounded transition-colors text-sm font-mono group-hover:border-white">
+                            <i class="fas fa-file-pdf"></i> Voir Rapport
+                        </a>
+                        <a href="sujets_SAE/2024-2025-SAE13.pdf" target="_blank" class="flex-1 inline-flex items-center justify-center gap-2 border border-net-accent text-net-accent hover:bg-net-accent/10 py-2 rounded transition-colors text-sm font-mono">
+                            <i class="fas fa-clipboard-list"></i> Voir Sujet
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 3: SAE 15 (THALES) -->
+                <div class="glass-panel rounded-xl overflow-hidden border border-net-border hover:border-net-accent transition-all group flex flex-col h-full">
+                    <div class="bg-slate-800/50 p-4 border-b border-net-border flex justify-between items-center">
+                        <span class="font-mono text-net-accent text-sm">SAE 15 :: AVIO TESTEUR</span>
+                        <div class="flex gap-2 text-xs">
+                            <span class="bg-orange-900 text-orange-200 px-2 py-0.5 rounded">Thales</span>
+                            <span class="bg-orange-900 text-orange-200 px-2 py-0.5 rounded">Python/SQL</span>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold text-white mb-3">Banc de Test Automatisé Thales</h3>
+                        <p class="text-slate-400 text-sm mb-4">
+                            Développement d'un système "Avio Testeur" pour validation satellitaire. Pilotage de caméra Raspberry Pi via interface Web sécurisée.
+                        </p>
+                        <div class="space-y-2 mb-6">
+                            <div class="flex items-start gap-2 text-sm text-slate-300">
+                                <i class="fas fa-check-circle text-status-ok mt-1"></i>
+                                <span>Interface PHP/MySQL pour logs et gestion</span>
+                            </div>
+                            <div class="flex items-start gap-2 text-sm text-slate-300">
+                                <i class="fas fa-check-circle text-status-ok mt-1"></i>
+                                <span>Analyse de risques (Panne courant, Intrusion)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4 border-t border-slate-700/50 bg-net-dark/50 flex gap-3">
+                        <a href="rapports/Thales06_SAE15_rapport.pdf" target="_blank" class="flex-1 inline-flex items-center justify-center gap-2 bg-net-panel hover:bg-net-accent border border-net-border text-white py-2 rounded transition-colors text-sm font-mono group-hover:border-white">
+                            <i class="fas fa-file-pdf"></i> Voir Rapport
+                        </a>
+                        <a href="sujets_SAE/IUT-2024_2025-SAE_15_23_24-Projet.pdf" target="_blank" class="flex-1 inline-flex items-center justify-center gap-2 border border-net-accent text-net-accent hover:bg-net-accent/10 py-2 rounded transition-colors text-sm font-mono">
+                            <i class="fas fa-clipboard-list"></i> Voir Sujet
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 4: SAE 21 -->
+                <div class="glass-panel rounded-xl overflow-hidden border border-net-border hover:border-net-accent transition-all group flex flex-col h-full">
+                    <div class="bg-slate-800/50 p-4 border-b border-net-border flex justify-between items-center">
+                        <span class="font-mono text-net-accent text-sm">SAE 21 :: INFRASTRUCTURE</span>
+                        <div class="flex gap-2 text-xs">
+                            <span class="bg-blue-900 text-blue-200 px-2 py-0.5 rounded">Cisco ASA</span>
+                            <span class="bg-blue-900 text-blue-200 px-2 py-0.5 rounded">EIGRP</span>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold text-white mb-3">Construction Réseau PME Sécurisé</h3>
+                        <p class="text-slate-400 text-sm mb-4">
+                            Déploiement complet d'une architecture réseau sécurisée avec Switch Multi-Couche (MLS) et Pare-feu ASA. Configuration du routage inter-domaines EIGRP.
+                        </p>
+                        <div class="space-y-2 mb-6">
+                            <div class="flex items-start gap-2 text-sm text-slate-300">
+                                <i class="fas fa-check-circle text-status-ok mt-1"></i>
+                                <span>NAT Overload & Statique (Exposition Web)</span>
+                            </div>
+                            <div class="flex items-start gap-2 text-sm text-slate-300">
+                                <i class="fas fa-check-circle text-status-ok mt-1"></i>
+                                <span>DMZ isolée pour Serveur Web (Ports 80/443)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4 border-t border-slate-700/50 bg-net-dark/50 flex gap-3">
+                        <a href="rapports/RAPPORT_SAE21_DROUSSI_SAMPEREZ_GRIRA.pdf" target="_blank" class="flex-1 inline-flex items-center justify-center gap-2 bg-net-panel hover:bg-net-accent border border-net-border text-white py-2 rounded transition-colors text-sm font-mono group-hover:border-white">
+                            <i class="fas fa-file-pdf"></i> Voir Rapport
+                        </a>
+                        <a href="sujets_SAE/Présentation SAE21.pdf" target="_blank" class="flex-1 inline-flex items-center justify-center gap-2 border border-net-accent text-net-accent hover:bg-net-accent/10 py-2 rounded transition-colors text-sm font-mono">
+                            <i class="fas fa-clipboard-list"></i> Voir Sujet
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 5: SAE 22 (LORA) -->
+                <div class="glass-panel rounded-xl overflow-hidden border border-net-border hover:border-net-accent transition-all group flex flex-col h-full">
+                    <div class="bg-slate-800/50 p-4 border-b border-net-border flex justify-between items-center">
+                        <span class="font-mono text-net-accent text-sm">SAE 22 :: IOT & SIGNAUX</span>
+                        <div class="flex gap-2 text-xs">
+                            <span class="bg-purple-900 text-purple-200 px-2 py-0.5 rounded">LoRaWAN</span>
+                            <span class="bg-purple-900 text-purple-200 px-2 py-0.5 rounded">Arduino</span>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold text-white mb-3">Surveillance de Cuve Connectée</h3>
+                        <p class="text-slate-400 text-sm mb-4">
+                            Conception d'un capteur IoT autonome (Ultrason) communiquant via LoRa. Analyse fine de l'autonomie et du bilan de liaison.
+                        </p>
+                        <div class="space-y-2 mb-6">
+                            <div class="flex items-start gap-2 text-sm text-slate-300">
+                                <i class="fas fa-check-circle text-status-ok mt-1"></i>
+                                <span>Optimisation Spreading Factor (SF11/SF12)</span>
+                            </div>
+                            <div class="flex items-start gap-2 text-sm text-slate-300">
+                                <i class="fas fa-check-circle text-status-ok mt-1"></i>
+                                <span>Calcul autonomie énergétique (Batterie/Solaire)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4 border-t border-slate-700/50 bg-net-dark/50 flex gap-3">
+                        <a href="rapports/SAE_22_Projet_Lora.pdf" target="_blank" class="flex-1 inline-flex items-center justify-center gap-2 bg-net-panel hover:bg-net-accent border border-net-border text-white py-2 rounded transition-colors text-sm font-mono group-hover:border-white">
+                            <i class="fas fa-file-pdf"></i> Voir Rapport
+                        </a>
+                        <a href="sujets_SAE/SujetSAE22_LoRa.pdf" target="_blank" class="flex-1 inline-flex items-center justify-center gap-2 border border-net-accent text-net-accent hover:bg-net-accent/10 py-2 rounded transition-colors text-sm font-mono">
+                            <i class="fas fa-clipboard-list"></i> Voir Sujet
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Empty Project Slots (9) -->
+                <!-- Slot 1 -->
+                <div class="glass-panel rounded-xl overflow-hidden border border-net-border hover:border-net-accent transition-all group flex flex-col h-full">
+                    <div class="bg-slate-800/50 p-4 border-b border-net-border flex justify-between items-center">
+                        <span class="font-mono text-net-accent text-sm">NOUVELLE SAE 1</span>
+                        <div class="flex gap-2 text-xs">
+                            <span class="bg-slate-700 text-slate-300 px-2 py-0.5 rounded">TAG 1</span>
+                            <span class="bg-slate-700 text-slate-300 px-2 py-0.5 rounded">TAG 2</span>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold text-white mb-3">Titre du Projet</h3>
+                        <p class="text-slate-400 text-sm mb-4">
+                            Description à compléter...
+                        </p>
+                    </div>
+                    <div class="p-4 border-t border-slate-700/50 bg-net-dark/50 flex gap-3">
+                        <a href="#" class="flex-1 inline-flex items-center justify-center gap-2 bg-net-panel hover:bg-net-accent border border-net-border text-white py-2 rounded transition-colors text-sm font-mono group-hover:border-white">
+                            <i class="fas fa-file-pdf"></i> Voir Rapport
+                        </a>
+                        <a href="#" class="flex-1 inline-flex items-center justify-center gap-2 border border-net-accent text-net-accent hover:bg-net-accent/10 py-2 rounded transition-colors text-sm font-mono">
+                            <i class="fas fa-clipboard-list"></i> Voir Sujet
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Slot 2 -->
+                <div class="glass-panel rounded-xl overflow-hidden border border-net-border hover:border-net-accent transition-all group flex flex-col h-full">
+                    <div class="bg-slate-800/50 p-4 border-b border-net-border flex justify-between items-center">
+                        <span class="font-mono text-net-accent text-sm">NOUVELLE SAE 2</span>
+                        <div class="flex gap-2 text-xs">
+                            <span class="bg-slate-700 text-slate-300 px-2 py-0.5 rounded">TAG 1</span>
+                            <span class="bg-slate-700 text-slate-300 px-2 py-0.5 rounded">TAG 2</span>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold text-white mb-3">Titre du Projet</h3>
+                        <p class="text-slate-400 text-sm mb-4">
+                            Description à compléter...
+                        </p>
+                    </div>
+                    <div class="p-4 border-t border-slate-700/50 bg-net-dark/50 flex gap-3">
+                        <a href="#" class="flex-1 inline-flex items-center justify-center gap-2 bg-net-panel hover:bg-net-accent border border-net-border text-white py-2 rounded transition-colors text-sm font-mono group-hover:border-white">
+                            <i class="fas fa-file-pdf"></i> Voir Rapport
+                        </a>
+                        <a href="#" class="flex-1 inline-flex items-center justify-center gap-2 border border-net-accent text-net-accent hover:bg-net-accent/10 py-2 rounded transition-colors text-sm font-mono">
+                            <i class="fas fa-clipboard-list"></i> Voir Sujet
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Slot 3 -->
+                <div class="glass-panel rounded-xl overflow-hidden border border-net-border hover:border-net-accent transition-all group flex flex-col h-full">
+                    <div class="bg-slate-800/50 p-4 border-b border-net-border flex justify-between items-center">
+                        <span class="font-mono text-net-accent text-sm">NOUVELLE SAE 3</span>
+                        <div class="flex gap-2 text-xs">
+                            <span class="bg-slate-700 text-slate-300 px-2 py-0.5 rounded">TAG 1</span>
+                            <span class="bg-slate-700 text-slate-300 px-2 py-0.5 rounded">TAG 2</span>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold text-white mb-3">Titre du Projet</h3>
+                        <p class="text-slate-400 text-sm mb-4">
+                            Description à compléter...
+                        </p>
+                    </div>
+                    <div class="p-4 border-t border-slate-700/50 bg-net-dark/50 flex gap-3">
+                        <a href="#" class="flex-1 inline-flex items-center justify-center gap-2 bg-net-panel hover:bg-net-accent border border-net-border text-white py-2 rounded transition-colors text-sm font-mono group-hover:border-white">
+                            <i class="fas fa-file-pdf"></i> Voir Rapport
+                        </a>
+                        <a href="#" class="flex-1 inline-flex items-center justify-center gap-2 border border-net-accent text-net-accent hover:bg-net-accent/10 py-2 rounded transition-colors text-sm font-mono">
+                            <i class="fas fa-clipboard-list"></i> Voir Sujet
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Slot 4 -->
+                <div class="glass-panel rounded-xl overflow-hidden border border-net-border hover:border-net-accent transition-all group flex flex-col h-full">
+                    <div class="bg-slate-800/50 p-4 border-b border-net-border flex justify-between items-center">
+                        <span class="font-mono text-net-accent text-sm">NOUVELLE SAE 4</span>
+                        <div class="flex gap-2 text-xs">
+                            <span class="bg-slate-700 text-slate-300 px-2 py-0.5 rounded">TAG 1</span>
+                            <span class="bg-slate-700 text-slate-300 px-2 py-0.5 rounded">TAG 2</span>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold text-white mb-3">Titre du Projet</h3>
+                        <p class="text-slate-400 text-sm mb-4">
+                            Description à compléter...
+                        </p>
+                    </div>
+                    <div class="p-4 border-t border-slate-700/50 bg-net-dark/50 flex gap-3">
+                        <a href="#" class="flex-1 inline-flex items-center justify-center gap-2 bg-net-panel hover:bg-net-accent border border-net-border text-white py-2 rounded transition-colors text-sm font-mono group-hover:border-white">
+                            <i class="fas fa-file-pdf"></i> Voir Rapport
+                        </a>
+                        <a href="#" class="flex-1 inline-flex items-center justify-center gap-2 border border-net-accent text-net-accent hover:bg-net-accent/10 py-2 rounded transition-colors text-sm font-mono">
+                            <i class="fas fa-clipboard-list"></i> Voir Sujet
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Slot 5 -->
+                <div class="glass-panel rounded-xl overflow-hidden border border-net-border hover:border-net-accent transition-all group flex flex-col h-full">
+                    <div class="bg-slate-800/50 p-4 border-b border-net-border flex justify-between items-center">
+                        <span class="font-mono text-net-accent text-sm">NOUVELLE SAE 5</span>
+                        <div class="flex gap-2 text-xs">
+                            <span class="bg-slate-700 text-slate-300 px-2 py-0.5 rounded">TAG 1</span>
+                            <span class="bg-slate-700 text-slate-300 px-2 py-0.5 rounded">TAG 2</span>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold text-white mb-3">Titre du Projet</h3>
+                        <p class="text-slate-400 text-sm mb-4">
+                            Description à compléter...
+                        </p>
+                    </div>
+                    <div class="p-4 border-t border-slate-700/50 bg-net-dark/50 flex gap-3">
+                        <a href="#" class="flex-1 inline-flex items-center justify-center gap-2 bg-net-panel hover:bg-net-accent border border-net-border text-white py-2 rounded transition-colors text-sm font-mono group-hover:border-white">
+                            <i class="fas fa-file-pdf"></i> Voir Rapport
+                        </a>
+                        <a href="#" class="flex-1 inline-flex items-center justify-center gap-2 border border-net-accent text-net-accent hover:bg-net-accent/10 py-2 rounded transition-colors text-sm font-mono">
+                            <i class="fas fa-clipboard-list"></i> Voir Sujet
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Slot 6 -->
+                <div class="glass-panel rounded-xl overflow-hidden border border-net-border hover:border-net-accent transition-all group flex flex-col h-full">
+                    <div class="bg-slate-800/50 p-4 border-b border-net-border flex justify-between items-center">
+                        <span class="font-mono text-net-accent text-sm">NOUVELLE SAE 6</span>
+                        <div class="flex gap-2 text-xs">
+                            <span class="bg-slate-700 text-slate-300 px-2 py-0.5 rounded">TAG 1</span>
+                            <span class="bg-slate-700 text-slate-300 px-2 py-0.5 rounded">TAG 2</span>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold text-white mb-3">Titre du Projet</h3>
+                        <p class="text-slate-400 text-sm mb-4">
+                            Description à compléter...
+                        </p>
+                    </div>
+                    <div class="p-4 border-t border-slate-700/50 bg-net-dark/50 flex gap-3">
+                        <a href="#" class="flex-1 inline-flex items-center justify-center gap-2 bg-net-panel hover:bg-net-accent border border-net-border text-white py-2 rounded transition-colors text-sm font-mono group-hover:border-white">
+                            <i class="fas fa-file-pdf"></i> Voir Rapport
+                        </a>
+                        <a href="#" class="flex-1 inline-flex items-center justify-center gap-2 border border-net-accent text-net-accent hover:bg-net-accent/10 py-2 rounded transition-colors text-sm font-mono">
+                            <i class="fas fa-clipboard-list"></i> Voir Sujet
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Slot 7 -->
+                <div class="glass-panel rounded-xl overflow-hidden border border-net-border hover:border-net-accent transition-all group flex flex-col h-full">
+                    <div class="bg-slate-800/50 p-4 border-b border-net-border flex justify-between items-center">
+                        <span class="font-mono text-net-accent text-sm">NOUVELLE SAE 7</span>
+                        <div class="flex gap-2 text-xs">
+                            <span class="bg-slate-700 text-slate-300 px-2 py-0.5 rounded">TAG 1</span>
+                            <span class="bg-slate-700 text-slate-300 px-2 py-0.5 rounded">TAG 2</span>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold text-white mb-3">Titre du Projet</h3>
+                        <p class="text-slate-400 text-sm mb-4">
+                            Description à compléter...
+                        </p>
+                    </div>
+                    <div class="p-4 border-t border-slate-700/50 bg-net-dark/50 flex gap-3">
+                        <a href="#" class="flex-1 inline-flex items-center justify-center gap-2 bg-net-panel hover:bg-net-accent border border-net-border text-white py-2 rounded transition-colors text-sm font-mono group-hover:border-white">
+                            <i class="fas fa-file-pdf"></i> Voir Rapport
+                        </a>
+                        <a href="#" class="flex-1 inline-flex items-center justify-center gap-2 border border-net-accent text-net-accent hover:bg-net-accent/10 py-2 rounded transition-colors text-sm font-mono">
+                            <i class="fas fa-clipboard-list"></i> Voir Sujet
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Slot 8 -->
+                <div class="glass-panel rounded-xl overflow-hidden border border-net-border hover:border-net-accent transition-all group flex flex-col h-full">
+                    <div class="bg-slate-800/50 p-4 border-b border-net-border flex justify-between items-center">
+                        <span class="font-mono text-net-accent text-sm">NOUVELLE SAE 8</span>
+                        <div class="flex gap-2 text-xs">
+                            <span class="bg-slate-700 text-slate-300 px-2 py-0.5 rounded">TAG 1</span>
+                            <span class="bg-slate-700 text-slate-300 px-2 py-0.5 rounded">TAG 2</span>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold text-white mb-3">Titre du Projet</h3>
+                        <p class="text-slate-400 text-sm mb-4">
+                            Description à compléter...
+                        </p>
+                    </div>
+                    <div class="p-4 border-t border-slate-700/50 bg-net-dark/50 flex gap-3">
+                        <a href="#" class="flex-1 inline-flex items-center justify-center gap-2 bg-net-panel hover:bg-net-accent border border-net-border text-white py-2 rounded transition-colors text-sm font-mono group-hover:border-white">
+                            <i class="fas fa-file-pdf"></i> Voir Rapport
+                        </a>
+                        <a href="#" class="flex-1 inline-flex items-center justify-center gap-2 border border-net-accent text-net-accent hover:bg-net-accent/10 py-2 rounded transition-colors text-sm font-mono">
+                            <i class="fas fa-clipboard-list"></i> Voir Sujet
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Slot 9 -->
+                <div class="glass-panel rounded-xl overflow-hidden border border-net-border hover:border-net-accent transition-all group flex flex-col h-full">
+                    <div class="bg-slate-800/50 p-4 border-b border-net-border flex justify-between items-center">
+                        <span class="font-mono text-net-accent text-sm">NOUVELLE SAE 9</span>
+                        <div class="flex gap-2 text-xs">
+                            <span class="bg-slate-700 text-slate-300 px-2 py-0.5 rounded">TAG 1</span>
+                            <span class="bg-slate-700 text-slate-300 px-2 py-0.5 rounded">TAG 2</span>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold text-white mb-3">Titre du Projet</h3>
+                        <p class="text-slate-400 text-sm mb-4">
+                            Description à compléter...
+                        </p>
+                    </div>
+                    <div class="p-4 border-t border-slate-700/50 bg-net-dark/50 flex gap-3">
+                        <a href="#" class="flex-1 inline-flex items-center justify-center gap-2 bg-net-panel hover:bg-net-accent border border-net-border text-white py-2 rounded transition-colors text-sm font-mono group-hover:border-white">
+                            <i class="fas fa-file-pdf"></i> Voir Rapport
+                        </a>
+                        <a href="#" class="flex-1 inline-flex items-center justify-center gap-2 border border-net-accent text-net-accent hover:bg-net-accent/10 py-2 rounded transition-colors text-sm font-mono">
+                            <i class="fas fa-clipboard-list"></i> Voir Sujet
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+   <!-- Timeline / Path -->
+    <section id="timeline" class="py-20 bg-slate-900 border-t border-net-border">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-white font-mono mb-12 text-center">
+                <span class="border-b-4 border-net-accent pb-2">PARCOURS_LOGS</span>
+            </h2>
+
+            <div class="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-700 before:to-transparent">
+
+                <!-- Item 1 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-net-border bg-slate-800 group-hover:bg-net-accent group-hover:text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 transition-all z-10">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded border border-slate-700 bg-slate-800/50 shadow-sm hover:border-net-accent hover:shadow-[0_0_15px_rgba(14,165,233,0.1)] transition-all">
+                        <div class="flex items-center justify-between space-x-2 mb-1">
+                            <h3 class="font-bold text-white">BUT Réseaux & Télécoms</h3>
+                            <time class="font-mono text-xs text-net-accent">2025 - 2028</time>
+                        </div>
+                        <p class="text-slate-400 text-sm">
+                            IUT Nice Côte d'Azur, Sophia Antipolis.<br>
+                            Architecture réseaux, Dev Web, Transmission de données.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-net-border bg-slate-800 group-hover:bg-net-accent group-hover:text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 transition-all z-10">
+                        <i class="fas fa-school"></i>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded border border-slate-700 bg-slate-800/50 shadow-sm hover:border-net-accent hover:shadow-[0_0_15px_rgba(14,165,233,0.1)] transition-all">
+                        <div class="flex items-center justify-between space-x-2 mb-1">
+                            <h3 class="font-bold text-white">BAC STI2D</h3>
+                            <time class="font-mono text-xs text-net-accent">2022 - 2023</time>
+                        </div>
+                        <p class="text-slate-400 text-sm">
+                            Lycée René Goscinny, Drap.<br>
+                            Sciences et technologies de l'industrie et du développement durable.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-net-border bg-slate-800 group-hover:bg-net-accent group-hover:text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 transition-all z-10">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded border border-slate-700 bg-slate-800/50 shadow-sm hover:border-net-accent hover:shadow-[0_0_15px_rgba(14,165,233,0.1)] transition-all">
+                        <div class="flex items-center justify-between space-x-2 mb-1">
+                            <h3 class="font-bold text-white">Assistant Pharmacie</h3>
+                            <time class="font-mono text-xs text-net-accent">2020 (Stage)</time>
+                        </div>
+                        <p class="text-slate-400 text-sm">
+                            Centre commercial La Trinité (Auchan). Gestion des stocks, accueil client, rigueur et organisation.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Languages Section -->
+    <section class="py-20 net-grid-bg">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-white font-mono mb-12 flex items-center gap-3">
+                <i class="fas fa-globe-europe text-net-accent"></i> LANGUES & COMMUNICATION
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Lang 1 -->
+                <div class="glass-panel p-6 rounded hover:-translate-y-1 transition-transform cursor-default text-center">
+                    <div class="w-12 h-12 bg-slate-800 rounded-full flex items-center justify-center text-white mb-4 border border-net-border mx-auto font-bold text-xl">
+                        IT
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Italien</h3>
+                    <p class="text-sm text-net-accent font-mono">Langue Maternelle</p>
+                </div>
+                
+                <!-- Lang 2 -->
+                <div class="glass-panel p-6 rounded hover:-translate-y-1 transition-transform cursor-default text-center">
+                    <div class="w-12 h-12 bg-slate-800 rounded-full flex items-center justify-center text-white mb-4 border border-net-border mx-auto font-bold text-xl">
+                        FR
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Français</h3>
+                    <p class="text-sm text-net-accent font-mono">Courant</p>
+                </div>
+
+                <!-- Lang 3 -->
+                <div class="glass-panel p-6 rounded hover:-translate-y-1 transition-transform cursor-default text-center">
+                    <div class="w-12 h-12 bg-slate-800 rounded-full flex items-center justify-center text-white mb-4 border border-net-border mx-auto font-bold text-xl">
+                        EN
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Anglais</h3>
+                    <p class="text-sm text-net-accent font-mono">Intermédiaire (B2)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Contact -->
+    <footer id="contact" class="bg-net-dark border-t border-net-border pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-12">
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-6">Prêt à collaborer ?</h2>
+                    <p class="text-slate-400 mb-8">
+                        À la recherche d'une alternance en cybersécurité pour Septembre 2025.
+                        Disponible pour échanger sur vos projets réseaux et sécurité.
+                    </p>
+                    <div class="space-y-3">
+                        <a href="mailto:mdroussi11@gmail.com" class="flex items-center gap-3 text-lg font-mono text-net-accent hover:text-white transition-colors">
+                            <i class="fas fa-envelope w-6 text-center"></i>
+                            <span>mdroussi11@gmail.com</span>
+                        </a>
+                        <div class="flex items-center gap-3 text-lg font-mono text-slate-400">
+                            <i class="fas fa-map-marker-alt w-6 text-center"></i>
+                            <span>06300 Nice, France</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="glass-panel p-8 rounded-xl border border-net-border">
+                    <div class="font-mono text-sm space-y-4">
+                        <div class="flex items-center gap-3 text-slate-400">
+                            <span class="w-20 text-slate-500">LOCATION:</span>
+                            <span class="text-white">Nice (06)</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-slate-400">
+                            <span class="w-20 text-slate-500">AVAIL:</span>
+                            <span class="text-status-ok">SEPT 2025</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-slate-400">
+                            <span class="w-20 text-slate-500">SHELL:</span>
+                            <span class="text-white">/bin/bash</span>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-dashed border-slate-700">
+                            <p class="text-xs text-slate-500 mb-2">// QUICK_LINKS</p>
+                            <div class="flex gap-4 text-2xl">
+                                <a href="https://github.com/mohaesh" target="_blank" class="text-slate-400 hover:text-white transition-colors"><i class="fab fa-github"></i></a>
+                                <a href="https://linkedin.com/in/mohamed-droussi" target="_blank" class="text-slate-400 hover:text-blue-500 transition-colors"><i class="fab fa-linkedin"></i></a>
+                                <a href="#" class="text-slate-400 hover:text-white transition-colors"><i class="fas fa-file-pdf"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center pt-8 border-t border-net-border">
+                <p class="text-slate-600 text-sm font-mono">
+                    © <span id="year"></span> MOHAMED DROUSSI. SYSTEM.EXIT(0);
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Button Back to Top (Demandé dans SAE25) -->
+    <button id="backToTop" class="fixed bottom-8 right-8 bg-net-accent hover:bg-blue-600 text-white p-4 rounded-full shadow-lg z-50 transition-all border border-white/20">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Smooth reveal animation on scroll
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
+            observer.observe(section);
+        });
+
+        // Gestion du bouton Back to Top (Consigne SAE25)
+        const backToTopBtn = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
