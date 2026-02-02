@@ -3,8 +3,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400;700&display=swap');
 
 /* --- Configuration Tailwind (Simulation) --- */
-/* Note: Dans un vrai projet, Tailwind génère le CSS. Ici, on ajoute les styles custom qui ne sont pas des classes utilitaires directes */
-
 body {
     background-color: #0b1121;
     background-image: 
@@ -73,6 +71,19 @@ body {
     visibility: visible;
 }
 
+/* --- Mobile Menu Transition --- */
+#mobile-menu {
+    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+}
+
+#mobile-menu.open {
+    max-height: 500px; /* Valeur arbitraire suffisante */
+    opacity: 1;
+}
+
 /* --- Animations --- */
 @keyframes pulse-slow {
     0%, 100% { opacity: 1; }
@@ -92,21 +103,15 @@ body {
     animation: scanline 8s linear infinite;
 }
 
-/* --- Utilitaires Texte & Couleurs (Réplique de Tailwind config) --- */
+/* --- Utilitaires Texte & Couleurs --- */
 .text-net-accent { color: #0ea5e9; }
 .bg-net-accent { background-color: #0ea5e9; }
 .border-net-accent { border-color: #0ea5e9; }
-.hover\:bg-net-accent:hover { background-color: #0ea5e9; }
-.hover\:text-net-accent:hover { color: #0ea5e9; }
-.hover\:border-net-accent:hover { border-color: #0ea5e9; }
-
 .bg-net-dark { background-color: #0f172a; }
 .bg-net-panel { background-color: #1e293b; }
 .border-net-border { border-color: #334155; }
-
 .text-status-ok { color: #22c55e; }
 .bg-status-ok { background-color: #22c55e; }
 .text-status-warn { color: #eab308; }
 .border-l-status-warn { border-left-color: #eab308; }
-
 .font-mono { font-family: 'JetBrains Mono', monospace; }

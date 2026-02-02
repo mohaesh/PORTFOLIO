@@ -27,19 +27,34 @@
                         <a href="contact.html" class="px-4 py-1 border border-sky-500 text-sky-500 hover:bg-sky-500 hover:text-white transition-all rounded">CONTACT</a>
                     </div>
                 </div>
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-slate-300 hover:text-white focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="md:hidden bg-[#0f172a] border-b border-slate-700">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 font-mono text-sm">
+                <a href="index.html" class="block px-3 py-2 text-slate-300 hover:text-white hover:bg-slate-800 rounded">::PROFIL</a>
+                <a href="competences.html" class="block px-3 py-2 text-slate-300 hover:text-white hover:bg-slate-800 rounded">::COMPÉTENCES</a>
+                <a href="projets.html" class="block px-3 py-2 text-slate-300 hover:text-white hover:bg-slate-800 rounded">::PROJETS</a>
+                <a href="parcours.html" class="block px-3 py-2 text-sky-500 bg-slate-800 rounded">::PARCOURS</a>
+                <a href="contact.html" class="block px-3 py-2 text-slate-300 font-bold">CONTACT</a>
             </div>
         </div>
     </nav>
 
     <!-- Timeline / Path -->
-    <section class="py-32 bg-[#0f172a] border-t border-slate-800 min-h-screen net-grid-bg">
+    <section class="py-24 lg:py-32 bg-[#0f172a] border-t border-slate-800 min-h-screen net-grid-bg">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             
             <!-- Carte Identité Parcours (Cyber Edition) -->
             <div class="mb-20 glass-panel rounded-xl border border-slate-700 relative group max-w-3xl mx-auto overflow-hidden">
-                <!-- Header de la carte -->
                 <div class="bg-[#1e293b]/80 p-4 border-b border-slate-700 flex justify-between items-center">
-                    <h3 class="text-xl font-bold text-white font-mono flex items-center gap-2">
+                    <h3 class="text-lg lg:text-xl font-bold text-white font-mono flex items-center gap-2">
                         <i class="fas fa-id-card text-sky-500"></i> Carte d'identité (Cyber Edition)
                     </h3>
                     <div class="flex gap-2">
@@ -49,44 +64,39 @@
                     </div>
                 </div>
 
-                <div class="p-8 flex flex-col md:flex-row gap-8 bg-[#0f172a]/60">
-                    <!-- Photo -->
+                <div class="p-6 lg:p-8 flex flex-col md:flex-row gap-8 bg-[#0f172a]/60">
                     <div class="flex-shrink-0 mx-auto md:mx-0">
                         <div class="w-40 h-40 rounded-lg overflow-hidden border-2 border-sky-500 shadow-[0_0_15px_rgba(14,165,233,0.3)]">
-                            <img src="images/t_shirt.jpg" onerror="this.src='https://ui-avatars.com/api/?name=Mohamed+Droussi&background=0f172a&color=0ea5e9&size=160'" alt="Mohamed Droussi" class="w-full h-full object-cover">
+                            <img src="images/profile.jpg" onerror="this.src='https://ui-avatars.com/api/?name=Mohamed+Droussi&background=0f172a&color=0ea5e9&size=160'" alt="Mohamed Droussi" class="w-full h-full object-cover">
                         </div>
                     </div>
 
-                    <!-- Infos Détaillées -->
                     <div class="flex-grow space-y-4 font-mono text-sm">
-                        
                         <div class="border-l-2 border-sky-500 pl-4">
                             <p class="text-slate-300"><span class="text-sky-500 font-bold">> Nom :</span> <span class="text-white font-bold">Mohamed Droussi</span></p>
                             <p class="text-slate-300"><span class="text-sky-500 font-bold">> Statut :</span> BUT2 R&T – Parcours cybersécurité</p>
-                            <p class="text-slate-300"><span class="text-sky-500 font-bold">> Spécialité :</span> Environnements Linux/Cisco & cybersécurité offensive</p>
-                            <p class="text-slate-300"><span class="text-sky-500 font-bold">> Terrain favori :</span> Linux • Pentest Web • Priv Esc • Cisco</p>
-                            <p class="text-slate-300"><span class="text-sky-500 font-bold">> Stage recherché :</span> Technicien Informatique/Fibre Optique (7 avril - 5 juin)</p>
+                            <p class="text-slate-300"><span class="text-sky-500 font-bold">> Spécialité :</span> environnements Linux & cybersécurité offensive</p>
+                            <p class="text-slate-300"><span class="text-sky-500 font-bold">> Terrain favori :</span> Linux • Pentest Web • Priv Esc</p>
+                            <p class="text-slate-300"><span class="text-sky-500 font-bold">> Stage recherché :</span> Alternance Cybersécurité (Sept 2025)</p>
                         </div>
 
                         <div class="border-l-2 border-green-500 pl-4 mt-4">
                             <p class="text-slate-300 mb-1"><span class="text-green-500 font-bold">> Profil :</span></p>
                             <ul class="list-disc list-inside text-slate-400 pl-2 space-y-1">
-                                <li>Sérieux, logique, rigoureux</li>
-                                <li> Honnête </li>
-                                <li>Passionné par l'analyse approfondie</li>
-                                <li>Esprit d’équipe & coordination</li>
+                                <li>sérieux, logique, rigoureux</li>
+                                <li>calme sous pression (merci la restauration :-])</li>
+                                <li>aime comprendre en profondeur</li>
+                                <li>esprit d’équipe & coordination</li>
                             </ul>
                         </div>
 
                         <div class="bg-slate-800/50 p-3 rounded mt-4 border border-slate-700">
                             <p class="text-sky-400 font-bold mb-1">> Objectif 2 ans :</p>
-                            <p class="text-slate-300">devenir opérationnel en architecture réseau ( ^_^ )</p>
+                            <p class="text-slate-300">devenir opérationnel en offensive security ( ^_^ )</p>
                         </div>
-
                     </div>
                 </div>
             </div>
-            <!-- Fin Carte Identité -->
 
             <h2 class="text-3xl font-bold text-white font-mono mb-12 text-center">
                 <span class="border-b-4 border-sky-500 pb-2">PARCOURS_LOGS</span>
@@ -118,7 +128,7 @@
                     </div>
                     <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded border border-slate-700 bg-slate-800/50 shadow-sm hover:border-sky-500 transition-all">
                         <div class="flex items-center justify-between space-x-2 mb-1">
-                            <h3 class="font-bold text-white">BAC STI2D - Spécialité SIN (Systèmes d'Information et Numérique)</h3>
+                            <h3 class="font-bold text-white">BAC STI2D</h3>
                             <time class="font-mono text-xs text-sky-500">2022 - 2023</time>
                         </div>
                         <p class="text-slate-400 text-sm">
@@ -149,27 +159,6 @@
         </div>
     </section>
 
-    <!-- Button Back to Top -->
-    <button id="backToTop" class="fixed bottom-8 right-8 bg-[#0ea5e9] hover:bg-blue-600 text-white p-4 rounded-full shadow-lg z-50 transition-all border border-white/20">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
-    <script>
-        // Gestion du bouton Back to Top
-        const backToTopBtn = document.getElementById('backToTop');
-        
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                backToTopBtn.classList.add('visible');
-            } else {
-                backToTopBtn.classList.remove('visible');
-            }
-        });
-
-        backToTopBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-    </script>
-
+    <script src="script.js"></script>
 </body>
 </html>
