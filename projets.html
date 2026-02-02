@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohamed Droussi | Projets</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="antialiased selection:bg-sky-500 selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-[#0f172a]/95 backdrop-blur border-b border-slate-700 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center gap-3">
+                    <div class="w-3 h-3 rounded-full bg-green-500 animate-pulse shadow-[0_0_10px_rgba(34,197,94,0.5)]"></div>
+                    <a href="index.html" class="font-mono text-xl font-bold text-white tracking-tighter">DROUSSI<span class="text-sky-500">.NET</span></a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-center space-x-8 font-mono text-sm text-slate-300">
+                        <a href="index.html" class="hover:text-sky-500 transition-colors">::PROFIL</a>
+                        <a href="competences.html" class="hover:text-sky-500 transition-colors">::COMPÉTENCES</a>
+                        <a href="projets.html" class="text-sky-500 transition-colors">::PROJETS</a>
+                        <a href="parcours.html" class="hover:text-sky-500 transition-colors">::PARCOURS</a>
+                        <a href="contact.html" class="px-4 py-1 border border-sky-500 text-sky-500 hover:bg-sky-500 hover:text-white transition-all rounded">CONTACT</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Projects Section -->
+    <section class="py-32 net-grid-bg min-h-screen">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-white font-mono mb-12 flex items-center justify-center gap-3">
+                <i class="fas fa-project-diagram text-sky-500"></i> PROJETS_ACADÉMIQUES (SAÉ)
+            </h2>
+            
+            <p class="text-slate-400 mb-12 max-w-3xl leading-relaxed mx-auto text-center">
+                Voici une sélection de mes projets majeurs (SAÉ) illustrant ma montée en compétences techniques. 
+                De la conception d'architectures sécurisées à l'IoT, en passant par l'analyse de signaux.
+            </p>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                
+                <!-- Project 1: SAE 12 -->
+                <div class="glass-panel rounded-xl overflow-hidden flex flex-col h-full hover:border-sky-500">
+                    <div class="bg-slate-800/50 p-4 border-b border-slate-700 flex justify-between items-center">
+                        <div class="flex flex-col">
+                            <span class="font-mono text-sky-500 text-sm">SAE 12 :: CARACTÉRISATION</span>
+                            <span class="text-xs text-slate-500 font-mono mt-1"><i class="far fa-calendar-alt mr-1"></i> 2025-2026</span>
+                        </div>
+                        <div class="flex gap-2 text-xs text-white">
+                            <span class="bg-green-900 px-2 py-0.5 rounded">Tektronix</span>
+                            <span class="bg-green-900 px-2 py-0.5 rounded">Physique</span>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold text-white mb-3">Mesure Physique des Supports</h3>
+                        <p class="text-slate-400 text-sm mb-4">Étude expérimentale des supports de transmission coaxiaux et optiques.</p>
+                        <div class="bg-[#0f172a] rounded border border-slate-700 p-3 font-mono text-xs text-green-400 overflow-hidden">
+                            <div class="opacity-70">
+                                > mesure atténuation câble coaxial [Tektronix]<br>
+                                > analyse réflectométrie TDR<br>
+                                > calcul impédance caractéristique<br>
+                                > status: VALIDATED<br>
+                                <span class="animate-pulse">_</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4 border-t border-slate-700/50 bg-[#0f172a]/50 flex gap-3">
+                        <a href="rapports/SAE_12_DROUSSI_MOHAMED.pdf" target="_blank" class="flex-1 inline-flex items-center justify-center gap-2 bg-[#1e293b] hover:bg-sky-500 border border-slate-700 text-white py-2 rounded transition-colors text-sm font-mono hover:border-white">
+                            <i class="fas fa-file-pdf"></i> Voir Rapport
+                        </a>
+                        <a href="sujets_SAE/Enonce-SAE12-2024.pdf" target="_blank" class="flex-1 inline-flex items-center justify-center gap-2 border border-sky-500 text-sky-500 hover:bg-sky-500/10 py-2 rounded transition-colors text-sm font-mono">
+                            <i class="fas fa-clipboard-list"></i> Voir Sujet
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 2: SAE 13 -->
+                <div class="glass-panel rounded-xl overflow-hidden flex flex-col h-full hover:border-sky-500">
+                    <div class="bg-slate-800/50 p-4 border-b border-slate-700 flex justify-between items-center">
+                        <div class="flex flex-col">
+                            <span class="font-mono text-sky-500 text-sm">SAE 13 :: ANALYSE RÉSEAUX</span>
+                            <span class="text-xs text-slate-500 font-mono mt-1"><i class="far fa-calendar-alt mr-1"></i> 2025-2026</span>
+                        </div>
+                        <div class="flex gap-2 text-xs text-white">
+                            <span class="bg-green-900 px-2 py-0.5 rounded">Wireshark</span>
+                            <span class="bg-green-900 px-2 py-0.5 rounded">IPv6</span>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold text-white mb-3">Analyse Logique des Réseaux Locaux</h3>
+                        <p class="text-slate-400 text-sm mb-4">Capture et analyse approfondie du trafic réseau IPv6 et protocoles OSI.</p>
+                        <div class="bg-[#0f172a] rounded border border-slate-700 p-3 font-mono text-xs text-green-400 overflow-hidden">
+                            <div class="opacity-70">
+                                > analyse trames IPv6 [Wireshark]<br>
+                                > audit consommation CPU/Énergie<br>
+                                > dissection protocoles couches 2-4<br>
+                                > status: VALIDATED<br>
+                                <span class="animate-pulse">_</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4 border-t border-slate-700/50 bg-[#0f172a]/50 flex gap-3">
+                        <a href="rapports/Droussi_MH-SAE13-Rapport.pdf" target="_blank" class="flex-1 inline-flex items-center justify-center gap-2 bg-[#1e293b] hover:bg-sky-500 border border-slate-700 text-white py-2 rounded transition-colors text-sm font-mono hover:border-white">
+                            <i class="fas fa-file-pdf"></i> Voir Rapport
+                        </a>
+                        <a href="sujets_SAE/2024-2025-SAE13.pdf" target="_blank" class="flex-1 inline-flex items-center justify-center gap-2 border border-sky-500 text-sky-500 hover:bg-sky-500/10 py-2 rounded transition-colors text-sm font-mono">
+                            <i class="fas fa-clipboard-list"></i> Voir Sujet
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 3: SAE 15 -->
+                <div class="glass-panel rounded-xl overflow-hidden flex flex-col h-full hover:border-sky-500">
+                    <div class="bg-slate-800/50 p-4 border-b border-slate-700 flex justify-between items-center">
+                        <div class="flex flex-col">
+                            <span class="font-mono text-sky-500 text-sm">SAE 15 :: AVIO TESTEUR</span>
+                            <span class="text-xs text-slate-500 font-mono mt-1"><i class="far fa-calendar-alt mr-1"></i> 2025-2026</span>
+                        </div>
+                        <div class="flex gap-2 text-xs text-white">
+                            <span class="bg-orange-900 px-2 py-0.5 rounded">Thales</span>
+                            <span class="bg-orange-900 px-2 py-0.5 rounded">Python/SQL</span>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold text-white mb-3">Banc de Test Automatisé Thales</h3>
+                        <p class="text-slate-400 text-sm mb-4">Développement d'un système "Avio Testeur" pour validation satellitaire.</p>
+                        <div class="space-y-2 mb-6">
+                            <div class="flex items-start gap-2 text-sm text-slate-300"><i class="fas fa-check-circle text-green-500 mt-1"></i><span>Interface PHP/MySQL</span></div>
+                            <div class="flex items-start gap-2 text-sm text-slate-300"><i class="fas fa-check-circle text-green-500 mt-1"></i><span>Analyse de risques</span></div>
+                        </div>
+                    </div>
+                    <div class="p-4 border-t border-slate-700/50 bg-[#0f172a]/50 flex gap-3">
+                        <a href="rapports/Thales06_SAE15_rapport.pdf" target="_blank" class="flex-1 inline-flex items-center justify-center gap-2 bg-[#1e293b] hover:bg-sky-500 border border-slate-700 text-white py-2 rounded transition-colors text-sm font-mono hover:border-white">
+                            <i class="fas fa-file-pdf"></i> Voir Rapport
+                        </a>
+                        <a href="sujets_SAE/IUT-2024_2025-SAE_15_23_24-Projet.pdf" target="_blank" class="flex-1 inline-flex items-center justify-center gap-2 border border-sky-500 text-sky-500 hover:bg-sky-500/10 py-2 rounded transition-colors text-sm font-mono">
+                            <i class="fas fa-clipboard-list"></i> Voir Sujet
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 4: SAE 21 -->
+                <div class="glass-panel rounded-xl overflow-hidden flex flex-col h-full hover:border-sky-500">
+                    <div class="bg-slate-800/50 p-4 border-b border-slate-700 flex justify-between items-center">
+                        <div class="flex flex-col">
+                            <span class="font-mono text-sky-500 text-sm">SAE 21 :: INFRASTRUCTURE</span>
+                            <span class="text-xs text-slate-500 font-mono mt-1"><i class="far fa-calendar-alt mr-1"></i> 2026-2027</span>
+                        </div>
+                        <div class="flex gap-2 text-xs text-white">
+                            <span class="bg-blue-900 px-2 py-0.5 rounded">Cisco ASA</span>
+                            <span class="bg-blue-900 px-2 py-0.5 rounded">EIGRP</span>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold text-white mb-3">Construction Réseau PME Sécurisé</h3>
+                        <p class="text-slate-400 text-sm mb-4">Déploiement complet d'une architecture réseau sécurisée avec Switch Multi-Couche (MLS) et Pare-feu ASA.</p>
+                        <div class="space-y-2 mb-6">
+                            <div class="flex items-start gap-2 text-sm text-slate-300"><i class="fas fa-check-circle text-green-500 mt-1"></i><span>NAT Overload & Statique</span></div>
+                            <div class="flex items-start gap-2 text-sm text-slate-300"><i class="fas fa-check-circle text-green-500 mt-1"></i><span>DMZ isolée (Ports 80/443)</span></div>
+                        </div>
+                    </div>
+                    <div class="p-4 border-t border-slate-700/50 bg-[#0f172a]/50 flex gap-3">
+                        <a href="rapports/RAPPORT_SAE21_DROUSSI_SAMPEREZ_GRIRA.pdf" target="_blank" class="flex-1 inline-flex items-center justify-center gap-2 bg-[#1e293b] hover:bg-sky-500 border border-slate-700 text-white py-2 rounded transition-colors text-sm font-mono hover:border-white">
+                            <i class="fas fa-file-pdf"></i> Voir Rapport
+                        </a>
+                        <a href="sujets_SAE/Présentation SAE21.pdf" target="_blank" class="flex-1 inline-flex items-center justify-center gap-2 border border-sky-500 text-sky-500 hover:bg-sky-500/10 py-2 rounded transition-colors text-sm font-mono">
+                            <i class="fas fa-clipboard-list"></i> Voir Sujet
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 5: SAE 22 -->
+                <div class="glass-panel rounded-xl overflow-hidden flex flex-col h-full hover:border-sky-500">
+                    <div class="bg-slate-800/50 p-4 border-b border-slate-700 flex justify-between items-center">
+                        <div class="flex flex-col">
+                            <span class="font-mono text-sky-500 text-sm">SAE 22 :: IOT & SIGNAUX</span>
+                            <span class="text-xs text-slate-500 font-mono mt-1"><i class="far fa-calendar-alt mr-1"></i> 2026-2027</span>
+                        </div>
+                        <div class="flex gap-2 text-xs text-white">
+                            <span class="bg-purple-900 px-2 py-0.5 rounded">LoRaWAN</span>
+                            <span class="bg-purple-900 px-2 py-0.5 rounded">Arduino</span>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold text-white mb-3">Surveillance de Cuve Connectée</h3>
+                        <p class="text-slate-400 text-sm mb-4">Conception d'un capteur IoT autonome (Ultrason) communiquant via LoRa.</p>
+                        <div class="space-y-2 mb-6">
+                            <div class="flex items-start gap-2 text-sm text-slate-300"><i class="fas fa-check-circle text-green-500 mt-1"></i><span>Optimisation Spreading Factor</span></div>
+                            <div class="flex items-start gap-2 text-sm text-slate-300"><i class="fas fa-check-circle text-green-500 mt-1"></i><span>Autonomie énergétique</span></div>
+                        </div>
+                    </div>
+                    <div class="p-4 border-t border-slate-700/50 bg-[#0f172a]/50 flex gap-3">
+                        <a href="rapports/SAE_22_Projet_Lora.pdf" target="_blank" class="flex-1 inline-flex items-center justify-center gap-2 bg-[#1e293b] hover:bg-sky-500 border border-slate-700 text-white py-2 rounded transition-colors text-sm font-mono hover:border-white">
+                            <i class="fas fa-file-pdf"></i> Voir Rapport
+                        </a>
+                        <a href="sujets_SAE/SujetSAE22_LoRa.pdf" target="_blank" class="flex-1 inline-flex items-center justify-center gap-2 border border-sky-500 text-sky-500 hover:bg-sky-500/10 py-2 rounded transition-colors text-sm font-mono">
+                            <i class="fas fa-clipboard-list"></i> Voir Sujet
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 9 Slots Vides -->
+                <!-- Slot 1 -->
+                <div class="glass-panel rounded-xl overflow-hidden flex flex-col h-full hover:border-sky-500 opacity-60 hover:opacity-100 transition-opacity">
+                    <div class="bg-slate-800/50 p-4 border-b border-slate-700 flex justify-between items-center">
+                        <span class="font-mono text-sky-500 text-sm">NOUVELLE SAE 1</span>
+                        <div class="flex gap-2 text-xs text-white"><span class="bg-slate-700 px-2 py-0.5 rounded">TAG</span></div>
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold text-white mb-3">Titre du Projet</h3>
+                        <p class="text-slate-400 text-sm">Description à venir...</p>
+                    </div>
+                    <div class="p-4 border-t border-slate-700/50 bg-[#0f172a]/50 flex gap-3">
+                        <a href="#" class="flex-1 inline-flex items-center justify-center gap-2 bg-[#1e293b] border border-slate-700 text-white py-2 rounded text-sm font-mono cursor-not-allowed opacity-50"><i class="fas fa-file-pdf"></i> Rapport</a>
+                        <a href="#" class="flex-1 inline-flex items-center justify-center gap-2 border border-sky-500 text-sky-500 py-2 rounded text-sm font-mono cursor-not-allowed opacity-50"><i class="fas fa-clipboard-list"></i> Sujet</a>
+                    </div>
+                </div>
+                
+                <!-- Slot 2 -->
+                <div class="glass-panel rounded-xl overflow-hidden flex flex-col h-full hover:border-sky-500 opacity-60 hover:opacity-100 transition-opacity">
+                    <div class="bg-slate-800/50 p-4 border-b border-slate-700 flex justify-between items-center">
+                        <span class="font-mono text-sky-500 text-sm">NOUVELLE SAE 2</span>
+                        <div class="flex gap-2 text-xs text-white"><span class="bg-slate-700 px-2 py-0.5 rounded">TAG</span></div>
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold text-white mb-3">Titre du Projet</h3>
+                        <p class="text-slate-400 text-sm">Description à venir...</p>
+                    </div>
+                    <div class="p-4 border-t border-slate-700/50 bg-[#0f172a]/50 flex gap-3">
+                        <a href="#" class="flex-1 inline-flex items-center justify-center gap-2 bg-[#1e293b] border border-slate-700 text-white py-2 rounded text-sm font-mono cursor-not-allowed opacity-50"><i class="fas fa-file-pdf"></i> Rapport</a>
+                        <a href="#" class="flex-1 inline-flex items-center justify-center gap-2 border border-sky-500 text-sky-500 py-2 rounded text-sm font-mono cursor-not-allowed opacity-50"><i class="fas fa-clipboard-list"></i> Sujet</a>
+                    </div>
+                </div>
+
+                <!-- Slot 3 -->
+                <div class="glass-panel rounded-xl overflow-hidden flex flex-col h-full hover:border-sky-500 opacity-60 hover:opacity-100 transition-opacity">
+                    <div class="bg-slate-800/50 p-4 border-b border-slate-700 flex justify-between items-center">
+                        <span class="font-mono text-sky-500 text-sm">NOUVELLE SAE 3</span>
+                        <div class="flex gap-2 text-xs text-white"><span class="bg-slate-700 px-2 py-0.5 rounded">TAG</span></div>
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold text-white mb-3">Titre du Projet</h3>
+                        <p class="text-slate-400 text-sm">Description à venir...</p>
+                    </div>
+                    <div class="p-4 border-t border-slate-700/50 bg-[#0f172a]/50 flex gap-3">
+                        <a href="#" class="flex-1 inline-flex items-center justify-center gap-2 bg-[#1e293b] border border-slate-700 text-white py-2 rounded text-sm font-mono cursor-not-allowed opacity-50"><i class="fas fa-file-pdf"></i> Rapport</a>
+                        <a href="#" class="flex-1 inline-flex items-center justify-center gap-2 border border-sky-500 text-sky-500 py-2 rounded text-sm font-mono cursor-not-allowed opacity-50"><i class="fas fa-clipboard-list"></i> Sujet</a>
+                    </div>
+                </div>
+
+                <!-- Slot 4 -->
+                <div class="glass-panel rounded-xl overflow-hidden flex flex-col h-full hover:border-sky-500 opacity-60 hover:opacity-100 transition-opacity">
+                    <div class="bg-slate-800/50 p-4 border-b border-slate-700 flex justify-between items-center">
+                        <span class="font-mono text-sky-500 text-sm">NOUVELLE SAE 4</span>
+                        <div class="flex gap-2 text-xs text-white"><span class="bg-slate-700 px-2 py-0.5 rounded">TAG</span></div>
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold text-white mb-3">Titre du Projet</h3>
+                        <p class="text-slate-400 text-sm">Description à venir...</p>
+                    </div>
+                    <div class="p-4 border-t border-slate-700/50 bg-[#0f172a]/50 flex gap-3">
+                        <a href="#" class="flex-1 inline-flex items-center justify-center gap-2 bg-[#1e293b] border border-slate-700 text-white py-2 rounded text-sm font-mono cursor-not-allowed opacity-50"><i class="fas fa-file-pdf"></i> Rapport</a>
+                        <a href="#" class="flex-1 inline-flex items-center justify-center gap-2 border border-sky-500 text-sky-500 py-2 rounded text-sm font-mono cursor-not-allowed opacity-50"><i class="fas fa-clipboard-list"></i> Sujet</a>
+                    </div>
+                </div>
+
+                <!-- Slot 5 -->
+                <div class="glass-panel rounded-xl overflow-hidden flex flex-col h-full hover:border-sky-500 opacity-60 hover:opacity-100 transition-opacity">
+                    <div class="bg-slate-800/50 p-4 border-b border-slate-700 flex justify-between items-center">
+                        <span class="font-mono text-sky-500 text-sm">NOUVELLE SAE 5</span>
+                        <div class="flex gap-2 text-xs text-white"><span class="bg-slate-700 px-2 py-0.5 rounded">TAG</span></div>
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold text-white mb-3">Titre du Projet</h3>
+                        <p class="text-slate-400 text-sm">Description à venir...</p>
+                    </div>
+                    <div class="p-4 border-t border-slate-700/50 bg-[#0f172a]/50 flex gap-3">
+                        <a href="#" class="flex-1 inline-flex items-center justify-center gap-2 bg-[#1e293b] border border-slate-700 text-white py-2 rounded text-sm font-mono cursor-not-allowed opacity-50"><i class="fas fa-file-pdf"></i> Rapport</a>
+                        <a href="#" class="flex-1 inline-flex items-center justify-center gap-2 border border-sky-500 text-sky-500 py-2 rounded text-sm font-mono cursor-not-allowed opacity-50"><i class="fas fa-clipboard-list"></i> Sujet</a>
+                    </div>
+                </div>
+
+                <!-- Slot 6 -->
+                <div class="glass-panel rounded-xl overflow-hidden flex flex-col h-full hover:border-sky-500 opacity-60 hover:opacity-100 transition-opacity">
+                    <div class="bg-slate-800/50 p-4 border-b border-slate-700 flex justify-between items-center">
+                        <span class="font-mono text-sky-500 text-sm">NOUVELLE SAE 6</span>
+                        <div class="flex gap-2 text-xs text-white"><span class="bg-slate-700 px-2 py-0.5 rounded">TAG</span></div>
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold text-white mb-3">Titre du Projet</h3>
+                        <p class="text-slate-400 text-sm">Description à venir...</p>
+                    </div>
+                    <div class="p-4 border-t border-slate-700/50 bg-[#0f172a]/50 flex gap-3">
+                        <a href="#" class="flex-1 inline-flex items-center justify-center gap-2 bg-[#1e293b] border border-slate-700 text-white py-2 rounded text-sm font-mono cursor-not-allowed opacity-50"><i class="fas fa-file-pdf"></i> Rapport</a>
+                        <a href="#" class="flex-1 inline-flex items-center justify-center gap-2 border border-sky-500 text-sky-500 py-2 rounded text-sm font-mono cursor-not-allowed opacity-50"><i class="fas fa-clipboard-list"></i> Sujet</a>
+                    </div>
+                </div>
+
+                <!-- Slot 7 -->
+                <div class="glass-panel rounded-xl overflow-hidden flex flex-col h-full hover:border-sky-500 opacity-60 hover:opacity-100 transition-opacity">
+                    <div class="bg-slate-800/50 p-4 border-b border-slate-700 flex justify-between items-center">
+                        <span class="font-mono text-sky-500 text-sm">NOUVELLE SAE 7</span>
+                        <div class="flex gap-2 text-xs text-white"><span class="bg-slate-700 px-2 py-0.5 rounded">TAG</span></div>
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold text-white mb-3">Titre du Projet</h3>
+                        <p class="text-slate-400 text-sm">Description à venir...</p>
+                    </div>
+                    <div class="p-4 border-t border-slate-700/50 bg-[#0f172a]/50 flex gap-3">
+                        <a href="#" class="flex-1 inline-flex items-center justify-center gap-2 bg-[#1e293b] border border-slate-700 text-white py-2 rounded text-sm font-mono cursor-not-allowed opacity-50"><i class="fas fa-file-pdf"></i> Rapport</a>
+                        <a href="#" class="flex-1 inline-flex items-center justify-center gap-2 border border-sky-500 text-sky-500 py-2 rounded text-sm font-mono cursor-not-allowed opacity-50"><i class="fas fa-clipboard-list"></i> Sujet</a>
+                    </div>
+                </div>
+
+                <!-- Slot 8 -->
+                <div class="glass-panel rounded-xl overflow-hidden flex flex-col h-full hover:border-sky-500 opacity-60 hover:opacity-100 transition-opacity">
+                    <div class="bg-slate-800/50 p-4 border-b border-slate-700 flex justify-between items-center">
+                        <span class="font-mono text-sky-500 text-sm">NOUVELLE SAE 8</span>
+                        <div class="flex gap-2 text-xs text-white"><span class="bg-slate-700 px-2 py-0.5 rounded">TAG</span></div>
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold text-white mb-3">Titre du Projet</h3>
+                        <p class="text-slate-400 text-sm">Description à venir...</p>
+                    </div>
+                    <div class="p-4 border-t border-slate-700/50 bg-[#0f172a]/50 flex gap-3">
+                        <a href="#" class="flex-1 inline-flex items-center justify-center gap-2 bg-[#1e293b] border border-slate-700 text-white py-2 rounded text-sm font-mono cursor-not-allowed opacity-50"><i class="fas fa-file-pdf"></i> Rapport</a>
+                        <a href="#" class="flex-1 inline-flex items-center justify-center gap-2 border border-sky-500 text-sky-500 py-2 rounded text-sm font-mono cursor-not-allowed opacity-50"><i class="fas fa-clipboard-list"></i> Sujet</a>
+                    </div>
+                </div>
+
+                <!-- Slot 9 -->
+                <div class="glass-panel rounded-xl overflow-hidden flex flex-col h-full hover:border-sky-500 opacity-60 hover:opacity-100 transition-opacity">
+                    <div class="bg-slate-800/50 p-4 border-b border-slate-700 flex justify-between items-center">
+                        <span class="font-mono text-sky-500 text-sm">NOUVELLE SAE 9</span>
+                        <div class="flex gap-2 text-xs text-white"><span class="bg-slate-700 px-2 py-0.5 rounded">TAG</span></div>
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold text-white mb-3">Titre du Projet</h3>
+                        <p class="text-slate-400 text-sm">Description à venir...</p>
+                    </div>
+                    <div class="p-4 border-t border-slate-700/50 bg-[#0f172a]/50 flex gap-3">
+                        <a href="#" class="flex-1 inline-flex items-center justify-center gap-2 bg-[#1e293b] border border-slate-700 text-white py-2 rounded text-sm font-mono cursor-not-allowed opacity-50"><i class="fas fa-file-pdf"></i> Rapport</a>
+                        <a href="#" class="flex-1 inline-flex items-center justify-center gap-2 border border-sky-500 text-sky-500 py-2 rounded text-sm font-mono cursor-not-allowed opacity-50"><i class="fas fa-clipboard-list"></i> Sujet</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
