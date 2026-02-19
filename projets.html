@@ -57,10 +57,18 @@
                 De la conception d'architectures sécurisées à l'IoT, en passant par l'analyse de signaux.
             </p>
 
+            <div class="flex flex-wrap justify-center gap-3 lg:gap-5 mb-12">
+                <button class="project-filter-btn active px-6 py-2 rounded-full border-2 border-sky-500 text-slate-300 hover:bg-sky-500/20 hover:text-white font-bold text-sm lg:text-base" data-filter="all">Tous</button>
+                <button class="project-filter-btn px-6 py-2 rounded-full border-2 border-sky-500 text-slate-300 hover:bg-sky-500/20 hover:text-white font-bold text-sm lg:text-base" data-filter="reseaux">Réseaux</button>
+                <button class="project-filter-btn px-6 py-2 rounded-full border-2 border-sky-500 text-slate-300 hover:bg-sky-500/20 hover:text-white font-bold text-sm lg:text-base" data-filter="cyber">Cyber</button>
+                <button class="project-filter-btn px-6 py-2 rounded-full border-2 border-sky-500 text-slate-300 hover:bg-sky-500/20 hover:text-white font-bold text-sm lg:text-base" data-filter="web">Web</button>
+                <button class="project-filter-btn px-6 py-2 rounded-full border-2 border-sky-500 text-slate-300 hover:bg-sky-500/20 hover:text-white font-bold text-sm lg:text-base" data-filter="telecom">Télécom</button>
+            </div>
+
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 
                 <!-- Project 1: SAE 12 -->
-                <div class="glass-panel rounded-xl overflow-hidden flex flex-col h-full hover:border-sky-500">
+                <div class="project-card glass-panel rounded-xl overflow-hidden flex flex-col h-full hover:border-sky-500" data-category="telecom">
                     <div class="bg-slate-800/50 p-4 border-b border-slate-700 flex justify-between items-center">
                         <div class="flex flex-col">
                             <span class="font-mono text-sky-500 text-sm font-bold">SAE 12 :: CARACTÉRISATION</span>
@@ -86,7 +94,7 @@
                 </div>
 
                 <!-- Project 2: SAE 13 -->
-                <div class="glass-panel rounded-xl overflow-hidden flex flex-col h-full hover:border-sky-500">
+                <div class="project-card glass-panel rounded-xl overflow-hidden flex flex-col h-full hover:border-sky-500" data-category="reseaux">
                     <div class="bg-slate-800/50 p-4 border-b border-slate-700 flex justify-between items-center">
                         <div class="flex flex-col">
                             <span class="font-mono text-sky-500 text-sm font-bold">SAE 13 :: ANALYSE RÉSEAUX</span>
@@ -112,7 +120,7 @@
                 </div>
 
                 <!-- Project 3: SAE 15 -->
-                <div class="glass-panel rounded-xl overflow-hidden flex flex-col h-full hover:border-sky-500">
+                <div class="project-card glass-panel rounded-xl overflow-hidden flex flex-col h-full hover:border-sky-500" data-category="web">
                     <div class="bg-slate-800/50 p-4 border-b border-slate-700 flex justify-between items-center">
                         <div class="flex flex-col">
                             <span class="font-mono text-sky-500 text-sm font-bold">SAE 15 :: AVIO TESTEUR</span>
@@ -138,11 +146,11 @@
                 </div>
 
                 <!-- Project 4: SAE 21 -->
-                <div class="glass-panel rounded-xl overflow-hidden flex flex-col h-full hover:border-sky-500">
+                <div class="project-card glass-panel rounded-xl overflow-hidden flex flex-col h-full hover:border-sky-500" data-category="reseaux">
                     <div class="bg-slate-800/50 p-4 border-b border-slate-700 flex justify-between items-center">
                         <div class="flex flex-col">
                             <span class="font-mono text-sky-500 text-sm font-bold">SAE 21 :: INFRASTRUCTURE</span>
-                            <span class="text-xs text-slate-500 font-mono mt-1"><i class="far fa-calendar-alt mr-1"></i> 2026-2027</span>
+                            <span class="text-xs text-slate-500 font-mono mt-1"><i class="far fa-calendar-alt mr-1"></i> 2025-2026</span>
                         </div>
                         <div class="flex gap-2 text-xs text-white">
                             <span class="bg-blue-900 px-2 py-0.5 rounded hidden sm:inline">Cisco ASA</span>
@@ -164,11 +172,11 @@
                 </div>
 
                 <!-- Project 5: SAE 22 -->
-                <div class="glass-panel rounded-xl overflow-hidden flex flex-col h-full hover:border-sky-500">
+                <div class="project-card glass-panel rounded-xl overflow-hidden flex flex-col h-full hover:border-sky-500" data-category="telecom">
                     <div class="bg-slate-800/50 p-4 border-b border-slate-700 flex justify-between items-center">
                         <div class="flex flex-col">
                             <span class="font-mono text-sky-500 text-sm font-bold">SAE 22 :: IOT & SIGNAUX</span>
-                            <span class="text-xs text-slate-500 font-mono mt-1"><i class="far fa-calendar-alt mr-1"></i> 2026-2027</span>
+                            <span class="text-xs text-slate-500 font-mono mt-1"><i class="far fa-calendar-alt mr-1"></i> 2025-2026</span>
                         </div>
                         <div class="flex gap-2 text-xs text-white">
                             <span class="bg-purple-900 px-2 py-0.5 rounded hidden sm:inline">LoRaWAN</span>
@@ -190,11 +198,11 @@
                 </div>
 
                 <!-- 9 Slots Vides (Placeholder pour 9 futures SAE) -->
-                <div class="glass-panel rounded-xl overflow-hidden flex flex-col h-full hover:border-sky-500">
+                <div class="project-card glass-panel rounded-xl overflow-hidden flex flex-col h-full hover:border-sky-500" data-category="web">
                     <div class="bg-slate-800/50 p-4 border-b border-slate-700 flex justify-between items-center">
                         <div class="flex flex-col">
                             <span class="font-mono text-sky-500 text-sm font-bold">SAE 25 :: PORTFOLIO</span>
-                            <span class="text-xs text-slate-500 font-mono mt-1"><i class="far fa-calendar-alt mr-1"></i> 2024-2025</span>
+                            <span class="text-xs text-slate-500 font-mono mt-1"><i class="far fa-calendar-alt mr-1"></i> 2025-2026</span>
                         </div>
                         <div class="flex gap-2 text-xs text-white">
                             <span class="bg-cyan-900 px-2 py-0.5 rounded hidden sm:inline">HTML/CSS</span>
@@ -213,7 +221,7 @@
                 </div>
 
 
-                <div class="glass-panel rounded-xl overflow-hidden flex flex-col h-full hover:border-sky-500">
+                <div class="project-card glass-panel rounded-xl overflow-hidden flex flex-col h-full hover:border-sky-500" data-category="telecom">
                     <div class="bg-slate-800/50 p-4 border-b border-slate-700 flex justify-between items-center">
                         <div class="flex flex-col">
                             <span class="font-mono text-sky-500 text-sm font-bold">SAE 31 :: TÉLÉDIFFUSION NUMÉRIQUE</span>
@@ -238,7 +246,7 @@
                     </div>
                 </div>
                 <!-- Project 6: SAE 32 -->
-                <div class="glass-panel rounded-xl overflow-hidden flex flex-col h-full hover:border-sky-500">
+                <div class="project-card glass-panel rounded-xl overflow-hidden flex flex-col h-full hover:border-sky-500" data-category="web">
                     <div class="bg-slate-800/50 p-4 border-b border-slate-700 flex justify-between items-center">
                         <div class="flex flex-col">
                             <span class="font-mono text-sky-500 text-sm font-bold">SAE 32 :: APPLICATION ANDROID</span>
@@ -264,7 +272,7 @@
                 </div>
 
                 <!-- Project 7: SAE 33 -->
-                <div class="glass-panel rounded-xl overflow-hidden flex flex-col h-full hover:border-sky-500">
+                <div class="project-card glass-panel rounded-xl overflow-hidden flex flex-col h-full hover:border-sky-500" data-category="cyber">
                     <div class="bg-slate-800/50 p-4 border-b border-slate-700 flex justify-between items-center">
                         <div class="flex flex-col">
                             <span class="font-mono text-sky-500 text-sm font-bold">SAE 33 :: INFRASTRUCTURE CYBERSÉCURITÉ</span>
@@ -288,8 +296,29 @@
                         </a>
                     </div>
                 </div>
-        
-        
+
+                <!-- Project 8: SAE 34 -->
+                <div class="project-card glass-panel rounded-xl overflow-hidden flex flex-col h-full hover:border-sky-500" data-category="cyber">
+                    <div class="bg-slate-800/50 p-4 border-b border-slate-700 flex justify-between items-center">
+                        <div class="flex flex-col">
+                            <span class="font-mono text-sky-500 text-sm font-bold">SAE 34 :: PENTEST & TUNNELING</span>
+                            <span class="text-xs text-slate-500 font-mono mt-1"><i class="far fa-calendar-alt mr-1"></i> 2026-2027</span>
+                        </div>
+                        <div class="flex gap-2 text-xs text-white">
+                            <span class="bg-red-900 px-2 py-0.5 rounded hidden sm:inline">Pentest</span>
+                            <span class="bg-red-900 px-2 py-0.5 rounded">SSH Tunnel</span>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold text-white mb-3">Test de Pénétration avec Tunnel SSH</h3>
+                        <p class="text-slate-400 text-sm mb-4">Exploitation d'une machine cible via création de tunnels SSH sécurisés et mise en œuvre de techniques de pentest avancées.</p>
+                    </div>
+                    <div class="p-4 border-t border-slate-700/50 bg-[#0f172a]/50 flex gap-3">
+                        <a href="rapports/RAPPORT_PENTEST_DROUSSI.pdf" target="_blank" class="flex-1 inline-flex items-center justify-center gap-2 bg-[#1e293b] hover:bg-sky-500 border border-slate-700 text-white py-2 rounded transition-colors text-sm font-mono hover:border-white">
+                            <i class="fas fa-file-pdf"></i> Rapport
+                        </a>
+                    </div>
+                </div>   
                 
             </div>
         </div>
